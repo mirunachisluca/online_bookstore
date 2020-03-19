@@ -1,0 +1,48 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body >
+    <style>
+        body {
+            background-image: url("/media/images/bg4.jpg");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        div.a{
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-gap: 15px;
+  padding: 30px;
+}
+
+.grid-container > div {
+  background-color: #bee6d2;
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+}
+.BookElementWrapper{
+    border-radius: 10px;
+}
+    </style>
+</body>
+<div style="margin-top: 50px; margin-left: 20px">
+    <form method="post" style="color:black">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" class="btn btn-primary">
+
+    </form>
+    <p style="color: darkred; font-weight: bold;">{{status}}</p>
+</div>

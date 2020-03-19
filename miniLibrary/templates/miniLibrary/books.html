@@ -1,0 +1,41 @@
+{% extends 'miniLibrary/base.html' %}
+{% block content %}
+<div >
+    {% if userLogged != "" %}
+   <p align="right"><b>Welcome! User:{{userLogged}}</b></p>
+    {% endif %}
+</div>
+<div class="a">
+
+    <br>
+    <h1> Online bookstore </h1>
+    {% if role == "admin" %}
+    <a href=" /miniLibrary/books/add" class="btn btn-primary">Add new book</a>
+    {%endif%}
+    <a href=" /miniLibrary/books/login" class="btn btn-primary">Login</a>
+    <a href=" /miniLibrary/books/logout" class="btn btn-primary">Logout</a>
+    {%if role == "client"%}
+    <a href=" /miniLibrary/books/cart" class="btn btn-primary">Cart ({{noOrderedBooks}})</a>
+    {%endif%}
+    <br>
+
+
+    {% if list_of_books %}
+    <div class="grid-container">
+        {% for book in list_of_books %}
+        <div class="BookElementWrapper">
+            <li><a href="/miniLibrary/books/{{ book.id }}/">{{ book.name }}</a></li>
+                {% if not book.has_image %}
+                <img src="/media/images/cover.png" alt="{{ book.name }}" style="width:100px;height:130px;border:0;">
+                {%else%}
+                <img src="{{book.book_image}}" alt="{{ book.name }}" style="width:100px;height:130px;border:0;">
+                {%endif%}
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No books are available.</p>
+    {% endif %}
+
+</div>
+{% endblock %}

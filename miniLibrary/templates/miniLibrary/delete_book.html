@@ -1,0 +1,45 @@
+<html>
+
+<head>
+<title> Book delete </title>
+</head>
+<body bgcolor="#70dbdb">
+<center><h1> Book delete: "{{book.name}}" </h1></center>
+<style>
+    body {
+        background-image: url("/media/images/bg4.jpg");
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+div.a{
+       text-align: center;
+}
+
+div.b {
+  width: 350px;
+  padding: 10px;
+  border: 5px solid red;
+  margin: 0; 
+} 
+
+
+</style>
+<div class="a">
+    <center>
+        <div class="b">
+            <form method="post">
+                {% csrf_token %}
+                <p><b>Are you sure you want to delete {{ book.name }} {{ book.price }} $ ?</p></b>
+                <input type="submit" value="Confirm">
+            </form>
+        </div>
+    </center>
+</div>
+
+</body>
+</html>

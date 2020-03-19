@@ -1,0 +1,23 @@
+{% extends 'miniLibrary/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+ <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h1>Add book</h1>
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {{ form.name|as_crispy_field }}
+                    {{ form.author|as_crispy_field }}
+                    {{ form.description|as_crispy_field }}
+                    {{ form.publisher|as_crispy_field }}
+                    {{ form.price|as_crispy_field }}
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+ </div>
+{% endblock %}

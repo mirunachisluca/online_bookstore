@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title> Book update </title>
+</head>
+<body>
+    <style>
+
+        div.a {
+            text-align: center;
+        }
+
+        div.b {
+            background-color: #bee6d2;
+            width: 350px;
+            padding: 10px;
+            border: 5px lightgreen;
+            margin: 0;
+        }
+        body {
+            background-image: url("/media/images/bg4.jpg");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+    <center><h1> Book update: "{{ book.name }}" </h1></center>
+    <div class="a">
+        <center>
+            <div class="b">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p  }}
+                    <input type="submit" value="Update" class="btn btn-primary">
+                </form>
+            </div>
+        </center>
+    </div>
+
+</body>
+</html>
+
+
